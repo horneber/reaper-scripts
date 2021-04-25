@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Henrik's JSFX" commit="af7255e6b23111894cfb8c43ec0c984a6d6151be">
+<index version="1" name="Henrik's JSFX" commit="362d3c5b5b5dbcd8d60f81873722d35d241ab7b2">
   <category name="JSFX">
-    <reapack name="hh_snake.jsfx" type="script" desc="Wannabe MDD Snake">
+    <reapack name="hh_snake.jsfx" type="effect" desc="MDD SNAKE like MIDI note generator">
       <metadata>
-        <description><![CDATA[
-		Simple midi generator.
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Description\par}
+}
 ]]></description>
       </metadata>
       <version name="0.1" author="horneber" time="2021-01-04T23:30:32Z">
