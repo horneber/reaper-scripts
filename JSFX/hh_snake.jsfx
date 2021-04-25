@@ -1,0 +1,187 @@
+desc: SNAKE
+
+slider1:velocity_1=90<0,127,1>velocity step 1
+slider2:velocity_2=90<0,127,1>velocity step 2
+slider3:velocity_3=90<0,127,1>velocity step 3
+slider4:velocity_4=90<0,127,1>velocity step 4
+slider5:velocity_5=90<0,127,1>velocity step 5
+slider6:velocity_6=90<0,127,1>velocity step 6
+slider7:velocity_7=90<0,127,1>velocity step 7
+slider8:velocity_8=90<0,127,1>velocity step 8
+slider9:velocity_9=90<0,127,1>velocity step 9
+slider10:velocity_10=90<0,127,1>velocity step 10
+slider11:velocity_11=90<0,127,1>velocity step 11
+slider12:velocity_12=90<0,127,1>velocity step 12
+slider13:velocity_13=90<0,127,1>velocity step 13
+slider14:velocity_14=90<0,127,1>velocity step 14
+slider15:velocity_15=90<0,127,1>velocity step 15
+slider16:velocity_16=90<0,127,1>velocity step 16
+
+slider17:number_of_steps_velocity=16<0,16,1>number of velocity steps
+slider18:velocity_step_offset=0<0,15,1>step offset velocity
+slider19:randomize_velocities=0<0,1,1{off,on}>randomize velocities
+
+slider21:note_1=90<21,108,1>note step 1
+slider22:note_2=90<21,108,1>note step 2
+slider23:note_3=90<21,108,1>note step 3
+slider24:note_4=90<21,108,1>note step 4
+slider25:note_5=90<21,108,1>note step 5
+slider26:note_6=90<21,108,1>note step 6
+slider27:note_7=90<21,108,1>note step 7
+slider28:note_8=90<21,108,1>note step 8
+slider29:note_9=90<21,108,1>note step 9
+slider30:note_10=90<21,108,1>note step 10
+slider31:note_11=90<21,108,1>note step 11
+slider32:note_12=90<21,108,1>note step 12
+slider33:note_13=90<21,108,1>note step 13
+slider34:note_14=90<21,108,1>note step 14
+slider35:note_15=90<21,108,1>note step 15
+slider36:note_16=90<21,108,1>note step 16
+
+slider37:number_of_steps_note=16<0,16,1>number of note steps
+slider38:notes_step_offset=0<0,15,1>step offset notes
+slider39:randomize_notes=0<0,1,1{off,on}>randomize notes
+
+slider41:gate_1=1<0,1,1{closed,open}>gate step 1
+slider42:gate_2=1<0,1,1{closed,open}>gate step 2
+slider43:gate_3=1<0,1,1{closed,open}>gate step 3
+slider44:gate_4=1<0,1,1{closed,open}>gate step 4
+slider45:gate_5=1<0,1,1{closed,open}>gate step 5
+slider46:gate_6=1<0,1,1{closed,open}>gate step 6
+slider47:gate_7=1<0,1,1{closed,open}>gate step 7
+slider48:gate_8=1<0,1,1{closed,open}>gate step 8
+slider49:gate_9=1<0,1,1{closed,open}>gate step 9
+slider50:gate_10=1<0,1,1{closed,open}>gate step 10
+slider51:gate_11=1<0,1,1{closed,open}>gate step 11
+slider52:gate_12=1<0,1,1{closed,open}>gate step 12
+slider53:gate_13=1<0,1,1{closed,open}>gate step 13
+slider54:gate_14=1<0,1,1{closed,open}>gate step 14
+slider55:gate_15=1<0,1,1{closed,open}>gate step 15
+slider56:gate_16=1<0,1,1{closed,open}>gate step 16
+
+slider57:number_of_steps_gate=16<0,16,1>number of gate steps
+slider58:gate_step_offset=0<0,15,1>step offset gate
+slider59:randomize_gates=0<0,1,1{off,on}>randomize gates
+
+slider60:midi_channel=0<0,15,1{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16}>MIDI Channel
+@slider
+randomize_velocities  ? (
+  index = 1;
+  while ( index <= 16 ) (
+         slider(index) = floor(rand(128));
+         index += 1;
+       );
+  randomize_velocities = 0;
+);
+
+randomize_notes ? (
+  index = 21;
+  while ( index <= 36 ) (
+         slider(index) = floor(rand(128));
+         index += 1;
+       );
+
+  randomize_notes = 0;
+); 
+
+randomize_gates ? (
+  index = 41;
+  while ( index <= 56 ) (
+         slider(index) = floor(rand(2));
+         index += 1;
+       );
+
+  randomize_gates = 0;
+);
+
+oncmd=noteon + midi_channel;
+offcmd=noteoff + midi_channel;
+
+@init
+  sending=0;
+  sent=0;
+  noteon=0x90;
+  noteoff=0x80;
+  bpos = 0;
+  gate_index = 0;
+  last_sent_note_index = 0;
+  last_used_gate_index = 0;
+ 
+ notes = 0;
+  notes[0] = note_1;
+  notes[1] = note_2;
+  notes[2] = note_3;
+  notes[3] = note_4;
+  notes[4] = note_5;
+  notes[5] = note_6;
+  notes[6] = note_7;
+  notes[7] = note_8;
+  notes[8] = note_9;
+  notes[9] = note_10;
+  notes[10] = note_11;
+  notes[11] = note_12;
+  notes[12] = note_13;
+  notes[13] = note_14;
+  notes[14] = note_15;
+  notes[15] = note_16;
+  
+  velocities = 100; 
+
+  velocities[0] = velocity_1;
+  velocities[1] = velocity_2;
+  velocities[2] = velocity_3;
+  velocities[3] = velocity_4;
+  velocities[4] = velocity_5;
+  velocities[5] = velocity_6;
+  velocities[6] = velocity_7;
+  velocities[7] = velocity_8;
+  velocities[8] = velocity_9;
+  velocities[9] = velocity_10;
+  velocities[10] = velocity_11;
+  velocities[11] = velocity_12;
+  velocities[12] = velocity_13;
+  velocities[13] = velocity_14;
+  velocities[14] = velocity_15;
+  velocities[15] = velocity_16;
+
+  gates = 200;
+  gates[0] = gate_1;
+  gates[1] = gate_2;
+  gates[2] = gate_3;
+  gates[3] = gate_4;
+  gates[4] = gate_5;
+  gates[5] = gate_6;
+  gates[6] = gate_7;
+  gates[7] = gate_8;
+  gates[8] = gate_9;
+  gates[9] = gate_10;
+  gates[10] = gate_11;
+  gates[11] = gate_12;
+  gates[12] = gate_13;
+  gates[13] = gate_14;
+  gates[14] = gate_15;
+  gates[15] = gate_16;
+@block
+  // TODO figure out how to do this for other subdivisions and metrums
+  bpos = floor(beat_position * 2);
+  
+  gate_index = ((bpos % number_of_steps_gate) + gate_step_offset) % number_of_steps_gate;  
+  cur_gate_val = gates[gate_index];
+  
+  note_index = ((bpos % number_of_steps_note) + notes_step_offset) % number_of_steps_note;  
+  cur_note_val = notes[note_index];
+
+  velocity_index = ((bpos % number_of_steps_velocity) + velocity_step_offset) % number_of_steps_velocity;  
+  cur_velocity_val = velocities[velocity_index];
+  
+   sending == 1 && last_used_gate_index != gate_index ? (
+    sending = 0;
+    midisend(0, offcmd, last_sent_note_val);
+  );
+  
+  sending == 0 && cur_gate_val == 1 ? (
+    sending = 1;
+    midisend(0, oncmd, cur_note_val, cur_velocity_val);
+    last_used_gate_index = gate_index;
+    last_sent_note_val = cur_note_val;
+  );
