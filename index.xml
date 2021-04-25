@@ -7,8 +7,7 @@
 		Simple midi generator.
 ]]></description>
       </metadata>
-      <version name="0.1" author="horneber" time="2021-01-04T23:30:32Z">
-        <source main="main">https://github.com/horneber/ReaScripts/raw/</source>
+      <version name="0.1" author="horneber" >        
       </version>
     </reapack>
   </category>
