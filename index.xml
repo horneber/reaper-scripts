@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Henrik&apos;s JSFX" >
+<index version="1" name="Henrik's JSFX" commit="af7255e6b23111894cfb8c43ec0c984a6d6151be">
   <category name="JSFX">
     <reapack name="hh_snake.jsfx" type="script" desc="Wannabe MDD Snake">
       <metadata>
@@ -13,7 +13,17 @@
     </reapack>
   </category>
   <metadata>
-    <description><![CDATA[
+    <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Henriks Reaper Scripts\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Well, only one at the moment, and it's glitchy. But useful, to me at least.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The URL to import in ReaPack is {\field{\*\fldinst{HYPERLINK "https://github.com/horneber/ReaScripts/raw/master/index.xml"}}{\fldrslt{\ul
+https://github.com/horneber/ReaScripts/raw/master/index.xml
+}}}
+.\par}
+}
 ]]></description>
   </metadata>
 </index>
