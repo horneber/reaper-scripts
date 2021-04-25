@@ -1,4 +1,22 @@
-desc: SNAKE
+desc: MDD SNAKE like MIDI note generator
+description: MDD SNAKE like MIDI note generator
+author: Henrik Horneber (horneber@gmail.com)
+version: 0.1
+changelog:
+  Initial version
+about:
+  ## Description 
+	Generates a stream of midi messages. Incomplete implementation of abletons MDD Snake device, see e.g. [this video](https://www.youtube.com/watch?v=v2_mdrz9XrU)
+
+//tags: MIDI
+//author: Henrik Horneber
+
+
+// these lines tell Reaper the effect has no audio input/output,
+// which enables processing optimizations.
+// MIDI-only FX should always have these lines.
+in_pin:none
+out_pin:none
 
 slider1:velocity_1=90<0,127,1>velocity step 1
 slider2:velocity_2=90<0,127,1>velocity step 2
