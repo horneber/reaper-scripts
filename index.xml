@@ -11,7 +11,8 @@
 }
 ]]></description>
       </metadata>
-      <version name="0.1" author="horneber" >        
+      <version name="0.1" author="horneber" >
+		<source>https://raw.githubusercontent.com/horneber/ReaScripts/362d3c5b5b5dbcd8d60f81873722d35d241ab7b2/JSFX/hh_snake.jsfx</source>
       </version>
     </reapack>
   </category>
